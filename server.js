@@ -14,7 +14,7 @@ exports.start = function(handle){
 		});
 	}
 	http.createServer(onRequest).listen(port);
-	console.log('Node server is Running @ http://10.1.2.234:' + port);
+	console.log('Node server is Running @ http://localhost:' + port);
 }
 
 function router(pathname, handle, response){
