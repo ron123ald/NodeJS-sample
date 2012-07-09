@@ -21,6 +21,27 @@ function home(response){
 	});
 }
 
+exports.jquery = function(response){
+	console.log('home');
+	fs.readFile('./html/jquery.js', function(err, html){
+		if(err){
+			console.log(err);
+		}
+		respond(response, html, 'text/javascript', 200);
+	});
+}
+
+exports.fayebrowsermin = function(response){
+	console.log('home');
+	fs.readFile('./html/faye-browser-min.js', function(err, html){
+		if(err){
+			console.log(err);
+		}
+		respond(response, html, 'text/javascript', 200);
+	});
+}
+
+
 exports.index = index;
 exports.home = home;
 

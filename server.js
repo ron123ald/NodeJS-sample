@@ -2,8 +2,7 @@ var http = require('http'),
 	fs = require('fs'),
 	url = require('url'),
 	port = 8888;
-	
-	
+		
 exports.start = function(handle){
 	function onRequest(request, response){
 		var pathname = getpathname(request);
@@ -27,6 +26,7 @@ function router(pathname, handle, response){
 		respond(response, 'Error', 'text/plain', 400);
 	}
 }
+
 function getpathname(request){
 	return url.parse(request.url).pathname;
 }
