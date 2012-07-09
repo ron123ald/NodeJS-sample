@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Node server chat</title>
-		<script type="text/javascript" src="http://192.168.133.129:8000/faye.js">
+		<script type="text/javascript" src="http://10.1.2.204:8000/faye.js">
 		</script>
 		<script type="text/javascript" src="faye-browser-min.js">
 		</script>
@@ -15,7 +15,7 @@
 			var proxy_channel = '/all_messages';
 			$(document).ready(function(){
 				
-				client = new Faye.Client('http://192.168.133.129:8000/faye', {
+				client = new Faye.Client('http://10.1.2.204:8000/faye', {
 					timeout: 120,
 					retry: 5
 				});
@@ -29,11 +29,13 @@
 					if(e.which == '13'){
 						console.log('{sender:' + $('#nameBox').val() + ', message: ' + $('#messageBox').val() + '}');
 						client.publish(proxy_channel, {sender: $('#nameBox').val(), message: $('#messageBox').val()});
+						$('#messageBox').val('');
 					}
 				});
 				$('#sendButton').click(function(){
 					console.log('{sender:' + $('#nameBox').val() + ', message: ' + $('#messageBox').val() + '}');
 					client.publish(proxy_channel, {sender: $('#nameBox').val(), message: $('#messageBox').val()});
+					$('#messageBox').val('');
 				});
 			});
 		</script>
